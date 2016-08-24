@@ -42,6 +42,14 @@ $(function() {
           e.preventDefault();
 
           $('.wrapper').load( $(this).attr('href') + ' .container' );
+
+          $('.overlay').fadeOut(300, function() {
+            $('.overlay').remove();
+          });
+          $('.top').removeClass('rotate-second');
+          $('.middle').removeClass('rotate-first');
+          $('.bottom').removeClass('rotate-third');
+          $check = true;
         })
       );
     }
