@@ -1,4 +1,114 @@
 // media for more than 480px
 @media screen and (min-width: 480px) {
+  .name {
+    font-size: 40px;
+  }
+  .position,
+  .portfolio__link {
+    font-size: 21px;
+  }
+  .portfolio__btn {
+    width: 230px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 30px;
+  }
+}
+
+// media for more than 768px
+@media screen and (min-width: 768px) {
+  header {
+    width: 120px;
+    height: 100%;
+    float: left;
+  }
+  .sidebar {
+    height: 100%;
+    display: block;
+  }
+  .navBtn {
+    width: 50px;
+    padding: 35px;
+    display: block;
+
+    span {
+      width: 50px;
+      margin-bottom: 15px;
+    }
+    span:last-child {
+      margin: 0;
+    }
+
+    .rotate-first {
+      transition: all .3s;
+      -webkit-transform: rotate(45deg) translate(-3px, 1px);
+      -moz-transform: rotate(45deg) translate(-3px, 1px);
+      -o-transform: rotate(45deg) translate(-3px, 1px);
+    }
+    .rotate-second{
+      transition: all .3s;
+      -webkit-transform: rotate(45deg) translate(7px, 12px);
+      -moz-transform: rotate(45deg) translate(7px, 12px);
+      -o-transform: rotate(45deg) translate(7px, 12px);
+    }
+    .rotate-third {
+      transition: all .5s;
+      -webkit-transform: rotate(-45deg) translate(10px, -15px);
+      -moz-transform: rotate(-45deg) translate(10px, -15px);
+      -o-transform: rotate(-45deg) translate(10px, -15px);
+    }
+  }
+  .logo {
+    height: auto;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .wrapper {
+    margin: 0;
+    display: block;
+  }
+  .container {
+    width: auto;
+    display: inline-block;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .overlay {
+
+    li {
+      margin: 2% 0;
+      padding-left: 50px;
+      font-size: 80px;
+      text-align: left;
+    }
+    li:first-child {
+      margin: 0;
+      padding-top: 20px;
+    }
+
+    footer {
+      padding-left: 120px;
+      line-height: 64px;
+      font-size: 20px;
+
+      .mail {
+        margin: 0;
+        padding-left: 20px;
+        float: left;
+      }
+
+      .rights {
+        padding-right: 20px;
+        float: right;
+      }
+    }
+  }
+  .navigation {
+    padding-left: 120px;
+  }
 
 }

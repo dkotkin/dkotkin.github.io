@@ -2,38 +2,38 @@
 
 $(function() {
 
-  var $check = true;
+  $(".wrapper").load("home.html .container");
 
+  var $check = true;
   $('.navBtn').click(function() {
     var $arr = ['home', 'portfolio', 'about', 'contact'];
 
     if ($check) {
-      var count = 0;
+      var count = 0,
+          $overlay = $('<div class="overlay"></div>'),
+          $ul = $('<ul class="navigation"></ul>'),
+          $footer = $('<footer></footer>');
+
       return (
-        $('.wrapper').append(
-          $('<div>')
-            .addClass('overlay')
-            .append(
-              $('<ul>')
-                .addClass('navigation')
+        $footer.append(
+          $('<a href="mailto:kotkin.lg@gmail.com"></a>')
+           .append(
+             $('<p>')
+               .addClass('mail')
+               .text('kotkin.lg@gmail.com')
             )
         ),
-        adding(),
-        $('.overlay').append(
-          $('<footer>')
-           .append(
-             $('<a href="mailto:kotkin.lg@gmail.com"></a>')
-              .append(
-                $('<p>')
-                  .text('kotkin.lg@gmail.com')
-              )
-           )
+        $footer.append(
+          $('<span class="rights">Copyright <span>&copy</span> Kotkin Dmytro</span>')
         ),
-        $('footer')
-          .append(
-            $('<span>Copyright <span>&copy</span> Kotkin Dmytro</span>')
-          ),
+
+        adding(),
+
+        $overlay.append($ul),
+        $overlay.append($footer),
         $check = false,
+        $overlay.hide().appendTo($('.wrapper')).fadeIn(300),
+
         $('.top').addClass('rotate-second'),
         $('.middle').addClass('rotate-first'),
         $('.bottom').addClass('rotate-third')
@@ -41,7 +41,9 @@ $(function() {
     }
 
     return (
-      $('.overlay').remove(),
+      $('.overlay').fadeOut(300, function() {
+        $('.overlay').remove();
+      }),
       $('.top').removeClass('rotate-second'),
       $('.middle').removeClass('rotate-first'),
       $('.bottom').removeClass('rotate-third'),
@@ -50,10 +52,10 @@ $(function() {
 
     function adding() {
       for (var i = 0, l = $arr.length; i < l; i++) {
-        $('.navigation').append(
+        $ul.append(
           $('<li>')
             .append(
-              $('<a href="#/"></a>')
+              $('<a href="' + $arr[i] + '.html"></a>')
                 .addClass($arr[i])
                 .append(
                   $('<p>')

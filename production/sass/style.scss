@@ -157,11 +157,13 @@ header {
   z-index: 10;
 
   li {
+    margin: 5% 0;
     font-size: 30px;
     list-style: none;
   }
   li:first-child {
-    padding-top: 75px;
+    margin: 0;
+    padding-top: 90px;
   }
 
   a {
@@ -175,14 +177,14 @@ header {
     }
 
     p {
-      margin: 0 0 10% 0;
+      margin: 0;
     }
   }
 
   footer {
     border-top: 1px solid #b2dfdb;
 
-    p {
+    .mail {
       margin: 10px 0;
     }
 
