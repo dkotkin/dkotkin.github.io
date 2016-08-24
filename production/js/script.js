@@ -36,7 +36,13 @@ $(function() {
 
         $('.top').addClass('rotate-second'),
         $('.middle').addClass('rotate-first'),
-        $('.bottom').addClass('rotate-third')
+        $('.bottom').addClass('rotate-third'),
+
+        $('.navigation li a').click(function(e) {
+          e.preventDefault();
+
+          $('.wrapper').load( $(this).attr('href') + ' .container' );
+        })
       );
     }
 
