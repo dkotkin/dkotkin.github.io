@@ -1,31 +1,88 @@
 #portfolio {
-  top: 0;
+  width: 100%;
+  padding-bottom: 25px;
+  display: block;
+  top: auto;
   transform: none;
 }
 
 .project {
+  padding: 50px;
+  width: inherit;
+  box-sizing: border-box;
+}
 
-  img {
-    width: 400px;
+.project-text{
+  width: 27%;
+  display: table;
+  float: left;
+  text-align: justify;
+
+  p {
+    margin: 0;
+    display: table-cell;
+    vertical-align: middle;
   }
 }
+
+.project-action {
+  display: inline-block;
+  text-align: right;
+  float: right;
+
+  img {
+    width: 350px;
+  }
+}
+
 .one {
+  height: 600px;
+  padding-bottom: 25px;
+
+  .project-text {
+    height: 525px;
+    margin-left: 5%;
+  }
 
   img {
-    height: 600px;
+    height: 525px;
   }
 }
 
-.two {
+.project-odd {
+  height: 234px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  clear: both;
+
+  .project-text {
+    height: 184px;
+    margin-left: 120px;
+    float: right;
+  }
+
+  .project-action {
+    margin-left: 120px;
+    float: left;
+  }
 
   img {
-    height: 210px;
+    height: 184px;
   }
 }
 
 .three {
+  height: 445px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  clear: both;
+
+  .project-text {
+    height: 395px;
+    margin-left: 120px;
+  }
 
   img {
-    height: 451px;
+    height: 395px;
   }
 }
