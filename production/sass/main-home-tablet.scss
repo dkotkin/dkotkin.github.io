@@ -20,7 +20,9 @@
   header {
     width: 120px;
     height: 100%;
-    float: left;
+    // float: left;
+    position: fixed;
+    z-index: 100;
   }
   .sidebar {
     height: 100%;
@@ -72,6 +74,7 @@
   }
   .container {
     width: auto;
+    padding-left: 75px;
     display: inline-block;
     top: 50%;
     transform: translateY(-50%);

@@ -1,21 +1,10 @@
 #portfolio {
-  width: 100%;
-  padding-bottom: 25px;
-  display: block;
-  top: auto;
-  transform: none;
+  padding: 75px 25px 25px;
 }
 
-.project {
-  padding: 50px;
-  width: inherit;
-  box-sizing: border-box;
-}
-
-.project-text{
-  width: 27%;
+.project-text {
+  height: 100px;
   display: table;
-  float: left;
   text-align: justify;
 
   p {
@@ -26,63 +15,18 @@
 }
 
 .project-action {
-  display: inline-block;
-  text-align: right;
-  float: right;
 
   img {
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
+    -webkit-filter: brightness(50%);
+  }
+  img:hover {
+    -webkit-filter: brightness(100%);
+    border: 2px solid #009688;
+    box-sizing: border-box;
+    transition: all .5s;
   }
 }
 
-.one {
-  height: 600px;
-  padding-bottom: 25px;
-
-  .project-text {
-    height: 525px;
-    margin-left: 5%;
-  }
-
-  img {
-    height: 525px;
-  }
-}
-
-.project-odd {
-  height: 234px;
-  padding-top: 25px;
-  padding-bottom: 25px;
-  clear: both;
-
-  .project-text {
-    height: 184px;
-    margin-left: 0;
-    float: right;
-  }
-
-  .project-action {
-    margin-left: 120px;
-    float: left;
-  }
-
-  img {
-    height: 184px;
-  }
-}
-
-.three {
-  height: 445px;
-  padding-top: 25px;
-  padding-bottom: 25px;
-  clear: both;
-
-  .project-text {
-    height: 395px;
-    margin-left: 120px;
-  }
-
-  img {
-    height: 395px;
-  }
-}
+@import "portfolio-tab.scss";
