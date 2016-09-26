@@ -1,0 +1,32 @@
+#portfolio {
+  padding: 75px 25px 25px;
+}
+
+.project-text {
+  height: 100px;
+  display: table;
+  text-align: justify;
+
+  p {
+    margin: 0;
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.project-action {
+
+  img {
+    width: 100%;
+    max-width: 350px;
+    -webkit-filter: brightness(50%);
+  }
+  img:hover {
+    -webkit-filter: brightness(100%);
+    border: 2px solid #009688;
+    box-sizing: border-box;
+    transition: all .5s;
+  }
+}
+
+@import "portfolio-tab.scss";
