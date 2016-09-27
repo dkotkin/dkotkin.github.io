@@ -1,6 +1,8 @@
 'use strict';
 
 var gulp = require('gulp'),
+    connect = require('gulp-connect'),
+    open = require('gulp-open'),
     sass = require('gulp-sass'),
     cleanCSS = require('gulp-clean-css'),
     concat = require('gulp-concat'),
@@ -9,9 +11,26 @@ var gulp = require('gulp'),
     watch = require('gulp-watch');
 
 var paths = {
+  port: 9009,
+  devBaseUrl: 'http://localhost',
   style: 'production/sass/*.scss',
   scripts: 'production/js/*.js'
 };
+
+// Start a local development server
+gulp.task('connect', function() {
+  connect.server({
+      root: ['../dkotkin.github.io'],
+      port: paths.port,
+      base: paths.devBaseUrl,
+      livereload: true
+  });
+});
+
+gulp.task('open', ['connect'], function() {
+  gulp.src('index.html')
+    .pipe(open({ uri: paths.devBaseUrl + ':' + paths.port + '/' }));
+});
 
 gulp.task('sass', function () {
   // Modify and minify all Styles
@@ -42,4 +61,4 @@ gulp.task('watch', function() {
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['watch', 'sass', 'scripts']);
+gulp.task('default', ['sass', 'scripts', 'open', 'watch']);
