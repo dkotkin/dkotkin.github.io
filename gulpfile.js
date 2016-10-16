@@ -7,13 +7,12 @@ var gulp = require('gulp'),
     cleanCSS = require('gulp-clean-css'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    sourcemaps = require('gulp-sourcemaps'),
     watch = require('gulp-watch');
 
 var paths = {
   port: 9009,
   devBaseUrl: 'http://localhost',
-  style: 'production/sass/*.scss',
+  style: 'production/sass/main.scss',
   scripts: 'production/js/*.js'
 };
 
@@ -45,12 +44,10 @@ gulp.task('scripts', function() {
   // Minify and copy all JavaScript
   // with sourcemaps all the way down
   return gulp.src(paths.scripts)
-    .pipe(sourcemaps.init())
     .pipe(concat('script.min.js'))
     .pipe(uglify().on('error', function(e){
       console.log(e);
     }))
-    .pipe(sourcemaps.write())
     .pipe(gulp.dest('build/js'));
 });
 

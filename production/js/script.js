@@ -1,100 +1,96 @@
-'use strict';
+$(function () {
 
-$(function() {
+    // Header behavior
+    $(window).scroll(function() {
+        if ( $(this).scrollTop() > 100 ){
+            return $('header').addClass("sticky");
+        }
+            return $('header').removeClass("sticky");
+    });
 
-  $(".wrapper").load("home.html .container", function() {
-    $('.wrapper').addClass('no');
-    $('.container').animate({
-      opacity: 1
-    }, 500);
-  });
+    $('body').append($('<div class="overlay" onclick="clearMenuWidth()"></div>'));
 
-  var $check = true,
-      href = '';
-  $('.navBtn').click(function() {
-    var $arr = ['home', 'portfolio', 'about', 'contact'];
+    // Menu button
+    $('.navBtn').click(function () {
+        $(this).toggleClass("change");
 
-    if ($check) {
-      var count = 0,
-          $overlay = $('<div class="overlay"></div>'),
-          $ul = $('<ul class="navigation"></ul>'),
-          $footer = $('<footer></footer>');
+        // Check device screen width
+        var mq = window.matchMedia( "(max-width: 700px)" );
 
-      return (
-        $footer.append(
-          $('<a href="mailto:kotkin.lg@gmail.com"></a>')
-           .append(
-             $('<p>')
-               .addClass('mail')
-               .text('kotkin.lg@gmail.com')
-            )
-        ),
-        $footer.append(
-          $('<span class="rights">Copyright <span>&copy</span> Kotkin Dmytro</span>')
-        ),
+        if (mq.matches) {
+            // Navigation menu
+            if (!$('header').hasClass('heading')) {
+                $('.sideNavigation').addClass('slideWidth');
+                $('header').addClass('heading');
+                $('.overlay').fadeIn(500);
+                $('body').css('overflow-y', 'hidden');
+            } else {
+                $('.sideNavigation').removeClass('slideWidth');
+                $('header').removeClass('heading');
+                $('.overlay').fadeOut(500);
+                $('body').css('overflow-y', 'auto');
+            }
+        } else {
+            // Navigation menu
+            if (!$('.parallax').hasClass('mooove')) {
+                $('.sideNavigation').addClass('slideWidth');
+                $('.overlay').fadeIn(500);
+                $(".parallax, .wrapper, footer").addClass('mooove');
+                $('header').addClass('heading');
+                $('body').css('overflow-y', 'hidden');
+            } else {
+                $('.sideNavigation').removeClass('slideWidth');
+                $('.overlay').fadeOut(500);
+                $(".parallax, .wrapper, footer").removeClass('mooove');
+                $('header').removeClass('heading');
+                $('body').css('overflow-y', 'auto');
+            }
+        }
 
-        adding(),
 
-        $overlay.append($ul),
-        $overlay.append($footer),
-        $check = false,
-        $overlay.hide().appendTo($('.wrapper')).fadeIn(300),
+    });
 
-        $('.top').addClass('rotate-second'),
-        $('.middle').addClass('rotate-first'),
-        $('.bottom').addClass('rotate-third'),
+    // // Check device screen width
+    // var mqmin = window.matchMedia( "(max-width: 600px)" ),
+    //     mq = window.matchMedia( "(min-width: 700px)" ),
+    //     mql = window.matchMedia("(orientation: portrait)");
+    //
+    // // Add a media query change listener
+    // mqmin.addListener(function(m) {
+    //     if (m.matches && mql.matches && $('.sideNavigation').hasClass('slideWidth')) {
+    //             // Changed to portrait
+    //             $(".parallax, .wrapper, footer").removeClass('mooove');
+    //
+    //     } else  if (m.matches && $('.sideNavigation').hasClass('slideWidth')) {
+    //         // Changed to landscape
+    //         $(".parallax, .wrapper, footer").addClass('mooove');
+    //     }
+    // });
+    // mq.addListener(function (m) {
+    //    if (m.matches && $('.sideNavigation').hasClass('slideWidth')) {
+    //        // Changed to landscape
+    //        $(".parallax, .wrapper, footer").addClass('mooove');
+    //    }
+    // });
 
-        $('.navigation li a').click(function(e) {
-          e.preventDefault();
-          href = $(this).attr('href');
-
-          if ( $(this).attr('href') === 'home.html' ) {
-            $('.wrapper').addClass('no');
-          } else {
-            $('.wrapper').removeClass('no');
-          }
-
-          $('.top').removeClass('rotate-second');
-          $('.middle').removeClass('rotate-first');
-          $('.bottom').removeClass('rotate-third');
-          $check = true;
-
-          $('.wrapper').load( $(this).attr('href') + ' .container', function() {
-            $('.container').attr( 'id', href.slice(0, href.indexOf(".")) );
-            $('.container').animate({
-              opacity: 1
-            }, 500);
-          });
-        })
-      );
-    }
-
-    return (
-      $('.overlay').fadeOut(300, function() {
-        $('.overlay').remove();
-      }),
-      $('.top').removeClass('rotate-second'),
-      $('.middle').removeClass('rotate-first'),
-      $('.bottom').removeClass('rotate-third'),
-      $check = true
-    );
-
-    function adding() {
-      for (var i = 0, l = $arr.length; i < l; i++) {
-        $ul.append(
-          $('<li>')
-            .append(
-              $('<a href="' + $arr[i] + '.html"></a>')
-                .addClass($arr[i])
-                .append(
-                  $('<p>')
-                    .text($arr[i])
-                )
-            )
-        );
-      }
-    }
-
-  });
+    // Anchor links
+    var $root = $('html, body');
+    $('.sideNavigation a').click(function(e){
+        e.preventDefault();
+        $root.stop().animate({
+            scrollTop: $( $(this).attr('href') ).offset().top - 48
+        }, 700);
+        clearMenuWidth();
+        return false;
+    });
 
 });
+
+function clearMenuWidth() {
+    $('.navBtn').toggleClass('change');
+    $('.sideNavigation').removeClass('slideWidth');
+    $('.overlay').fadeOut(500);
+    $(".parallax, .wrapper, footer").removeClass('mooove');
+    $('header').removeClass('heading');
+    $('body').css('overflow-y', 'auto');
+}
