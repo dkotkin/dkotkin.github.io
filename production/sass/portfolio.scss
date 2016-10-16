@@ -1,32 +1,62 @@
-#portfolio {
-  padding: 75px 25px 25px;
-}
+.portfolio {
+  @extend .parallax;
+  height: auto;
+  background-image: url("../img/portfolio-back.jpg");
 
-.project-text {
-  height: 100px;
-  display: table;
-  text-align: justify;
-
-  p {
-    margin: 0;
-    display: table-cell;
-    vertical-align: middle;
+  &:before {
+    opacity: .6;
   }
 }
 
-.project-action {
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.project {
+  width: 100%;
+  margin-top: 50px;
+  padding: 0 25px;
+  display: flex;
+  align-items: center;
 
   img {
     width: 100%;
-    max-width: 350px;
-    -webkit-filter: brightness(50%);
+    max-width: 500px;
+    height: auto;
   }
-  img:hover {
-    -webkit-filter: brightness(100%);
-    border: 2px solid #009688;
-    box-sizing: border-box;
-    transition: all .5s;
+
+  @media #{$max-md} {
+    margin-top: 0;
+    padding: 5px;
+    flex-direction: column;
+  }
+}
+.project:nth-child(even) {
+  flex-direction: row-reverse;
+
+  @media #{$max-md} {
+    flex-direction: column;
+  }
+}
+.project:last-child {
+  margin-bottom: 50px;
+
+  @media #{$max-md} {
+    margin-bottom: 25px;
   }
 }
 
-@import "portfolio-tab.scss";
+.description li {
+  padding-left: 31px;
+  text-indent:  -31px;
+}
+
+.view {
+  text-align: center;
+
+  @media #{$max-md} {
+    margin-top: 15px;
+  }
+}

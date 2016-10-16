@@ -1,0 +1,61 @@
+.sideNavigation {
+  width: 0;
+  height: 100%;
+  margin-top: 48px;
+  padding-top: 42px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: $cyan;
+  overflow-x: hidden;
+  transition: all 0.5s;
+
+  @media screen and (max-width: 600px) {
+    padding-top: 65px;
+    background-color: $clearcyan;
+    top: -42px;
+  }
+}
+.slideWidth {
+  width: 250px;
+}
+
+/* The navigation menu links */
+.sideNavigation a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: $green;
+  display: block;
+  transition: 0.3s;
+
+  @media only screen and (max-width: 600px) {
+    padding-top: 32px;
+    padding-left: calc(100% / 2 - 85px);
+    font-size: 45px;
+  }
+}
+
+/* When you mouse over the navigation links, change their color */
+.sideNavigation a:hover, .offcanvas a:focus{
+  color: $white;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+.parallax, header,
+.wrapper, footer {
+  transition: margin-left .5s;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: $blackTrans;
+  position: fixed;
+  top: 0;
+}
+.mooove {
+  //margin-left: 250px;
+}

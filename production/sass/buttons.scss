@@ -1,0 +1,28 @@
+.btn {
+  width: 100%;
+  display: inline-block;
+  padding: 10px 19px;
+  font-size: 17px;
+  font-weight: normal;
+  line-height: 1.4;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.25s linear;
+}
+
+.btn-primary {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #fff;
+  background-color: $btnPrimary;
+
+  &:hover {
+    background-color: $btnPrimaryHover;
+  }
+  &:active {
+    background-color: $btnPrimaryActive;
+  }
+}
