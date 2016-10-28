@@ -1,11 +1,17 @@
 $(function () {
 
     // Header behavior
+    var headerHeight = $('header').height(),
+        $header = $('header');
+
     $(window).scroll(function() {
-        if ( $(this).scrollTop() > 100 ){
-            return $('header').addClass("sticky");
+        var pixels = $(window).scrollTop();
+
+        if (pixels > headerHeight) {
+            $header.addClass('sticky');
+        } else {
+            $header.removeClass('sticky');
         }
-            return $('header').removeClass("sticky");
     });
 
     $('body').append($('<div class="overlay" onclick="clearMenuWidth()"></div>'));
@@ -47,42 +53,23 @@ $(function () {
             }
         }
 
-
     });
-
-    // // Check device screen width
-    // var mqmin = window.matchMedia( "(max-width: 600px)" ),
-    //     mq = window.matchMedia( "(min-width: 700px)" ),
-    //     mql = window.matchMedia("(orientation: portrait)");
-    //
-    // // Add a media query change listener
-    // mqmin.addListener(function(m) {
-    //     if (m.matches && mql.matches && $('.sideNavigation').hasClass('slideWidth')) {
-    //             // Changed to portrait
-    //             $(".parallax, .wrapper, footer").removeClass('mooove');
-    //
-    //     } else  if (m.matches && $('.sideNavigation').hasClass('slideWidth')) {
-    //         // Changed to landscape
-    //         $(".parallax, .wrapper, footer").addClass('mooove');
-    //     }
-    // });
-    // mq.addListener(function (m) {
-    //    if (m.matches && $('.sideNavigation').hasClass('slideWidth')) {
-    //        // Changed to landscape
-    //        $(".parallax, .wrapper, footer").addClass('mooove');
-    //    }
-    // });
 
     // Anchor links
-    var $root = $('html, body');
-    $('.sideNavigation a').click(function(e){
-        e.preventDefault();
-        $root.stop().animate({
-            scrollTop: $( $(this).attr('href') ).offset().top - 48
-        }, 700);
-        clearMenuWidth();
-        return false;
+    $('.sideNavigation a[href*="#"]:not([href="#"])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top - 48
+                }, 1000);
+                clearMenuWidth();
+                return false;
+            }
+        }
     });
+
 
 });
 
