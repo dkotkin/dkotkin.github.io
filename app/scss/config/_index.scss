@@ -1,0 +1,6 @@
+$base-path : '../public';
+$fonts-path : '#{$base-path}/fonts';
+$images-base-path : '#{$base-path}/img';
+
+@import "color-definition";
+@import "settings_definition";

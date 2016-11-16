@@ -1,0 +1,38 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: $regular;
+
+    * {
+        box-sizing: border-box;
+    }
+}
+
+.wrapper {
+    width: 95%;
+    margin: 0 auto;
+
+    @media #{$desktop} {
+        width: $grid-max-width;
+    }
+}
+
+.clearfix {
+    content: ' ';
+    display: table;
+    clear: both;
+}
+
+.main {
+    height: 500px;
+    background: red;
+}
+.about {
+    height: 500px;
+    background: yellow;
+}
+.contact {
+    height: 500px;
+    background: blue;
+}

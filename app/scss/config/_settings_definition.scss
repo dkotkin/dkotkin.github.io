@@ -1,0 +1,25 @@
+// grid variables
+$grid-col: 12;
+$grid-max-width: 1300px;
+
+
+$header-height: 60px;
+$subnav-width-small: 320px - 60px;
+$subnav-width-large: 370px;
+
+$large: 1200px;
+$medium: 700px;
+$small: 320px;
+
+$mobile: 'only screen and (min-width: #{$small})';
+$tablet: 'only screen and (min-width: #{$medium})';
+$desktop: 'only screen and (min-width: #{$large})';
+$mobile-max: 'only screen and (max-width: #{$small})';
+$tablet-max: 'only screen and (max-width: #{$medium})';
+$desktop-max: 'only screen and (max-width: #{$large})';
+
+$space: 8px;
+$space-2: $space*2;
+$space-4: $space*4;
+$space-8: $space*8;
+$space-16: $space*16;

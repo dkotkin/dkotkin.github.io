@@ -1,0 +1,52 @@
+header {
+  width: 100%;
+  height: 90px;
+  display: flex;
+  padding-left: 25px;
+  align-items: center;
+  font-size: 72px;
+  text-align: center;
+  background: $cyan;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  transition: all 1s;
+}
+.sticky {
+  height: 48px;
+  padding-left: 10px;
+  font-size: 24px;
+  line-height: 48px;
+  text-align: left;
+  top: 0;
+  transition: all 1s;
+
+  .logo h1 {
+    font-size: 40px;
+  }
+}
+
+
+
+
+
+.heading {
+  height: 90px !important;
+  padding-left: 25px !important;
+
+  .navBtn{
+    .bar1, .bar2, .bar3 {
+      background-color: $green;
+    }
+
+    &:hover .bar1,
+    &:hover .bar2,
+    &:hover .bar3 {
+      background-color: $white;
+    }
+  }
+
+  .logo h1{
+    font-size: 61px !important;
+  }
+}

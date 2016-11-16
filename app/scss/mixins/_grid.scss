@@ -1,0 +1,38 @@
+[class*='col-'] {
+    width: 100%;
+    min-height: 1px;
+    padding: 0 10px;
+    float: left;
+}
+.col-block {
+    display: block;
+    margin: 0 auto;
+    float: none;
+}
+
+@media #{$mobile} {
+
+    @for $i from 1 through $grid-col {
+        .col-xs-#{$i} {
+            width: 100% / $grid-col * $i;
+        }
+    }
+}
+
+@media #{$tablet} {
+
+    @for $i from 1 through $grid-col {
+        .col-md-#{$i} {
+            width: 100% / $grid-col * $i;
+        }
+    }
+}
+
+@media #{$desktop} {
+
+    @for $i from 1 through $grid-col {
+        .col-lg-#{$i} {
+            width: 100% / $grid-col * $i;
+        }
+    }
+}

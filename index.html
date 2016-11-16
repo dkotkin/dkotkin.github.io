@@ -1,128 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dmytro Kotkin Front-end Portfolio">
     <meta name="keywords" content="HTML,CSS,JavaScript,Front-end,Portfolio,CV">
     <meta name="author" content="Dmytro Kotkin">
     <title>Dmytro Kotkin | Front-end developer Portfolio</title>
-    <link rel="stylesheet" href="build/css/style.min.css">
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-    <script src="production/js/script.js"></script>
-  </head>
-  <body>
+</head>
+<body>
 
-    <div class="sideNavigation">
-      <a href="#main">home</a>
-      <a href="#portfolio">portfolio</a>
-      <a href="#about">about</a>
-      <a href="#contact">contact</a>
-    </div>
+    <div id="app"></div>
+    <script src="bundle.js"></script>
 
-    <div id="main" class="parallax">
-      <div class="container">
-        <h1 class="name">DMYTRO KOTKIN</h1>
-        <h3 class="position">Junior Front-end Developer</h3>
-        <a href="#/" class="col-sm-9 col-md-6 col-lg-4 col-block">
-          <span class="btn btn-primary">View Portfolio</span>
-        </a>
-      </div>
-    </div>
-
-    <header>
-      <div class="navBtn">
-        <span class="bar1"></span>
-        <span class="bar2"></span>
-        <span class="bar3"></span>
-      </div>
-        <div class="logo">
-        <h1 class="logo__text">DK</h1>
-        </div>
-    </header>
-
-
-    <section class="wrapper">
-
-      <!--<section class="main">-->
-
-      <!--</section>-->
-
-      <section id="portfolio" class="portfolio">
-
-        <div class="content">
-          <div class="project project1">
-            <div class="col-xs-12 col-md-6 description">
-              <h3 class="project-title">Final Exam</h3>
-              <p>Final exam project where each student had to use all gained knowledge on the course and the following technologies:</p>
-              <li>Cross-browser compatibility</li>
-              <li>Pixel perfect</li>
-              <li>Responsive design with Mobile-first approach</li>
-              <li>Using BEM methodology</li>
-              <li>No Bootstrap inside</li>
-              <li>Use Gulp</li>
-              <li>Sliders should be as jQuery-plugin</li>
-              <li>Random pictures should be uploaded with AJAX at the same time with loading the page</li>
-              <li>Input field should change pictures by a keyword</li>
-              <li>Use sprites</li>
-            </div>
-            <div class="col-xs-12 col-md-6 view">
-              <a href="http://ronny25.github.io/finalExam/" target="_blank">
-                <img src="build/img/project1.jpeg" alt="project1">
-              </a>
-            </div>
-          </div>
-          <div class="project project2">
-            <div class="col-xs-12 col-md-6 description">
-              <h3 class="project-title">Star Wars Heroes</h3>
-              <p>Create Star Wars heroes info page using the following technologies:</p>
-              <li>Fetch for AJAX calls</li>
-              <li>Get info from the swapi.co using their API</li>
-              <li>Design is free</li>
-              <li>MVC pattern used</li>
-            </div>
-            <div class="col-xs-12 col-md-6 view">
-              <a href="http://ronny25.github.io/GLJSBasecamp/" target="_blank">
-                <img src="build/img/project2.jpeg" alt="project2">
-              </a>
-            </div>
-          </div>
-          <div class="project project3">
-            <div class="col-xs-12 col-md-6 description">
-              <h3 class="project-title">Company's Layout</h3>
-              <p>Create web page based on photoshop layout using the following technologies:</p>
-              <li>Sass</li>
-              <li>Pixel perfect</li>
-              <li>BEM methodology</li>
-              <li>No Bootstrap inside</li>
-              <li>Slider should be as jQuery-plugin</li>
-              <li>Use sprites</li>
-            </div>
-            <div class="col-xs-12 col-md-6 view">
-              <a href="http://ronny25.github.io/js19-20/" target="_blank">
-                <img src="build/img/project3.jpeg" alt="project3">
-              </a>
-            </div>
-          </div>
-        </div>
-
-      </section>
-
-      <section id="about" class="about">
-
-      </section>
-
-      <section id="contact" class="contact">
-
-      </section>
-
-    </section>
-
-    <div class="parallax parSecond"></div>
-
-    <footer>
-
-    </footer>
-
-  </body>
+</body>
 </html>
